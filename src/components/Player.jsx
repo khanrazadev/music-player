@@ -81,8 +81,12 @@ function Player({
           <TbPlayerTrackNextFilled className="w-6 h-6" onClick={handleNext} />
         </div>
 
-        <div className="w-12 dropdown dropdown-top h-12 rounded-full bg-[rgba(255,255,255,0.1)] flex items-center justify-center">
-          <div tabIndex={0} role="button">
+        <div className="w-12 md:hidden h-12 rounded-full bg-[rgba(255,255,255,0.1)] flex items-center justify-center">
+          <HiSpeakerWave />
+        </div>
+
+        <div tabIndex={0} role="button" className="w-12 hidden md:flex dropdown dropdown-top h-12 rounded-full bg-[rgba(255,255,255,0.1)]  items-center justify-center">
+          <div >
             <HiSpeakerWave />
             <div tabIndex={0} className="dropdown-content z-[1] menu w-52">
               <input
