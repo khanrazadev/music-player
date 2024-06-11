@@ -9,7 +9,6 @@ import useDebounce from "./hooks/useDebounce";
 import useSongs from "./hooks/useSongs";
 import useAudioPlayer from "./hooks/useAudioPlayer";
 import Logo from "./assets/logo.svg";
-
 import { IoMenu } from "react-icons/io5";
 
 function App() {
@@ -26,6 +25,9 @@ function App() {
     calculateProgress,
     audioRef,
     setIsPlaying,
+    handleSeekerChange,
+    volume,
+    handleVolumeChange,
   } = useAudioPlayer(currentSong);
   const [activeTab, setActiveTab] = useState("forYou");
   const [searchQuery, setSearchQuery] = useState("");
@@ -134,6 +136,9 @@ function App() {
             handlePrev={handlePrev}
             handleNext={handleNext}
             audioRef={audioRef}
+            handleSeekerChange={handleSeekerChange}
+            volume={volume}
+            handleVolumeChange={handleVolumeChange}
           />
         )}
       </div>

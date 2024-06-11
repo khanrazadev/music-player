@@ -16,7 +16,20 @@ function Player({
   handlePrev,
   handleNext,
   audioRef,
+  handleSeekerChange,
+  volume,
+  handleVolumeChange,
 }) {
+  const progress = calculateProgress();
+
+  const handleSeekerInputChange = (event) => {
+    handleSeekerChange(event.target.value);
+  };
+
+  const handleVolumeInputChange = (event) => {
+    handleVolumeChange(event.target.value);
+  };
+
   return (
     <div className="flex flex-col space-y-2">
       <label className="font-bold text-2xl">{currentSong.name}</label>
@@ -29,11 +42,21 @@ function Player({
           alt={currentSong.name}
         />
       </div>
-      <div className="h-1 rounded-lg bg-stone-600 w-full">
-        <div
-          className="h-1 rounded-lg bg-stone-50"
-          style={{ width: `${calculateProgress()}%` }}
-        ></div>
+      <div className="relative w-full">
+        <div className="h-1 rounded-xl bg-stone-600 w-full absolute">
+          <div
+            className="h-1 rounded-lg bg-stone-50"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={progress}
+          onChange={handleSeekerInputChange}
+          className="absolute top-0 left-0 w-full h-1 opacity-0 cursor-pointer"
+        />
       </div>
 
       <div className="flex justify-between pt-2">
@@ -58,8 +81,21 @@ function Player({
           <TbPlayerTrackNextFilled className="w-6 h-6" onClick={handleNext} />
         </div>
 
-        <div className="w-12 h-12 rounded-full bg-[rgba(255,255,255,0.1)] flex items-center justify-center">
-          <HiSpeakerWave />
+        <div className="w-12 dropdown dropdown-top h-12 rounded-full bg-[rgba(255,255,255,0.1)] flex items-center justify-center">
+          <div tabIndex={0} role="button">
+            <HiSpeakerWave />
+            <div tabIndex={0} className="dropdown-content z-[1] menu w-52">
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value={volume}
+                onChange={handleVolumeInputChange}
+                className="w-32 rounded-lg bg-white bg-opacity-10 appearance-none transform -rotate-90"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <audio ref={audioRef} src={currentSong.url} />
@@ -83,6 +119,9 @@ Player.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
+  handleSeekerChange: PropTypes.func.isRequired,
+  volume: PropTypes.number.isRequired,
+  handleVolumeChange: PropTypes.func.isRequired,
 };
 
 export default Player;
