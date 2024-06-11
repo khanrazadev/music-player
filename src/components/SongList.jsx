@@ -6,9 +6,9 @@ function SongList({ songs, currentSongIndex, playSong }) {
       {songs.map((song, index) => (
         <div
           key={song.id}
-          className={`flex justify-between items-center ${
+          className={`flex cursor-pointer justify-between items-center ${
             currentSongIndex === index
-              ? "border p-2"
+              ? " bg-white bg-opacity-10 p-2"
               : "hover:bg-[rgba(255,255,255,0.08)]"
           } my-6 transition-all ease-in-out hover:p-4 rounded-lg`}
           onClick={() => playSong(song, index)}

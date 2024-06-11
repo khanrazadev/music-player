@@ -2,10 +2,9 @@ import PropTypes from "prop-types";
 
 function Tabs({ activeTab, handleTabSwitch }) {
   return (
-    <div role="tablist" className="tabs gap-10 flex mb-8 mt-2">
+    <div className=" flex mb-8 gap-8 mt-2">
       <a
-        role="tab"
-        className={`tab text-2xl font-bold ${
+        className={` cursor-pointer text-2xl font-bold ${
           activeTab === "forYou" ? "tab-active" : "opacity-50"
         }`}
         onClick={() => handleTabSwitch("forYou")}
@@ -13,8 +12,7 @@ function Tabs({ activeTab, handleTabSwitch }) {
         For You
       </a>
       <a
-        role="tab"
-        className={`tab text-2xl font-bold ${
+        className={` cursor-pointer text-2xl font-bold ${
           activeTab === "topTracks" ? "tab-active" : "opacity-50"
         }`}
         onClick={() => handleTabSwitch("topTracks")}

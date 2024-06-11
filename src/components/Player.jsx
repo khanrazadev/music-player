@@ -20,7 +20,7 @@ function Player({
   return (
     <div className="flex flex-col space-y-2">
       <label className="font-bold text-2xl">{currentSong.name}</label>
-      <p className="text-sm opacity-60">{currentSong.artist}</p>
+      <label className="text-sm text-stone-500">{currentSong.artist}</label>
 
       <div className="py-4">
         <img
@@ -29,9 +29,9 @@ function Player({
           alt={currentSong.name}
         />
       </div>
-      <div className="h-1 rounded-lg bg-slate-600 w-full">
+      <div className="h-1 rounded-lg bg-stone-600 w-full">
         <div
-          className="h-1 rounded-lg bg-slate-50"
+          className="h-1 rounded-lg bg-stone-50"
           style={{ width: `${calculateProgress()}%` }}
         ></div>
       </div>
@@ -41,11 +41,11 @@ function Player({
           <GoKebabHorizontal />
         </div>
 
-        <div className="flex justify-between items-center gap-4 w-44 h-14 text-gray-400">
+        <div className="flex justify-between items-center gap-4 w-44 h-14 text-stone-400">
           <TbPlayerTrackPrevFilled className="w-6 h-6" onClick={handlePrev} />
 
           <div
-            className="rounded-full w-12 h-12 flex justify-center items-center bg-slate-50 text-slate-900"
+            className="rounded-full cursor-pointer w-12 h-12 flex justify-center items-center bg-stone-50 text-stone-900"
             onClick={togglePlayPause}
           >
             {isPlaying ? (
