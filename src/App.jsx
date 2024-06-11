@@ -72,8 +72,8 @@ function App() {
       className="md:grid h-[100vh] p-8 md:grid-cols-12"
       style={{
         background: currentSong
-          ? currentSong.accent
-          : "linear-gradient(to right, #ff7e5f, #feb47b)",
+          ? `linear-gradient(to right, ${currentSong.accent}, #000000)`
+          : "linear-gradient(to right, #201606, #000000)",
       }}
     >
       <Header />
