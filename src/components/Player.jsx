@@ -65,7 +65,7 @@ function Player({
         </div>
 
         <div className="flex justify-between items-center gap-4 w-44 h-14 text-stone-400">
-          <TbPlayerTrackPrevFilled className="w-6 h-6" onClick={handlePrev} />
+          <TbPlayerTrackPrevFilled className="w-6 h-6 cursor-pointer" onClick={handlePrev} />
 
           <div
             className="rounded-full cursor-pointer w-12 h-12 flex justify-center items-center bg-stone-50 text-stone-900"
@@ -78,7 +78,7 @@ function Player({
             )}
           </div>
 
-          <TbPlayerTrackNextFilled className="w-6 h-6" onClick={handleNext} />
+          <TbPlayerTrackNextFilled className="w-6 h-6 cursor-pointer" onClick={handleNext} />
         </div>
 
         <div className="w-12 md:hidden h-12 rounded-full bg-[rgba(255,255,255,0.1)] flex items-center justify-center">
